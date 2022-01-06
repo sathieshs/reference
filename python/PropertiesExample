@@ -1,0 +1,35 @@
+class PropertiesExample:
+
+    def __init__(self, firstName, lastName):
+        self.firstName = firstName
+        self.lastName = lastName
+
+    @property
+    def firstName(self):
+        print("from method {}".format(self._firstName))
+        return self._firstName
+
+    @firstName.setter
+    def firstName(self, firstName):
+        if len(firstName) < 2:
+            raise ValueError('length less than 2')
+        self._firstName = firstName
+
+    @property
+    def lastName(self):
+        print("from method {}".format(self._lastName))
+        return self._lastName
+
+    @lastName.setter
+    def lastName(self, lastName):
+        print(lastName.setter)
+        if len(lastName) < 2:
+            raise ValueError('length less than 2')
+        self._lastName = lastName
+
+
+if __name__ == '__main__':
+    example = PropertiesExample('sath', 'sdd')
+    print(example.firstName)
+    print(example.lastName)
+
